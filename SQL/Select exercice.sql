@@ -40,6 +40,23 @@ WHERE
 -- Distinct to avoid duplicates (show all posible values only once)
 SELECT DISTINCT gender FROM employees;
 
+-- Order by any column
+SELECT * FROM employees 
+ORDER BY last_name, first_name ASC;
+
+-- Count amount of employees or distinct names
+SELECT COUNT(emp_no) FROM employees;
+SELECT COUNT(DISTINCT first_name) FROM employees;
+SELECT COUNT(*) FROM salaries WHERE salary >= 100000;
+
+-- Using group by also apply unique. We will use alias.
+SELECT first_name, COUNT(first_name) AS names_count FROM employees
+GROUP BY first_name ORDER BY first_name ASC;
+SELECT salary, COUNT(emp_no) AS emps_with_same_salary FROM salaries
+WHERE salary > 80000 GROUP BY salary ORDER BY salary;
+
+
+
 
 
  
